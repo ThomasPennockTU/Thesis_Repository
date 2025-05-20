@@ -1,0 +1,56 @@
+<Description>
+   ABAQUS/explicit rank 0 encountered a SEGMENTATION FAULT
+
+</Description>
+
+<Context>
+   EXPLICIT
+</Context>
+
+<Phase>
+   xpl | DomainInitialize | SetupDomOneTimeVar
+</Phase>
+
+<Callstack>
+  1)  ABQSMAOdbDdbOdb.dll         extC_DdbStep::FieldFrame                
+  2)  ABQSMAXtrModule.dll         extX_FldReqArray::Write                 
+  3)  ABQSMAXtrModule.dll         extx_odbfldrecvwrite                    
+  4)  ABQSMAXplCore.dll           mai_tsk_odbfldwrite                     
+  5)  ABQSMAXplCore.dll           ini_exe_setupdomonetimevar              
+  6)  ABQSMAXplCore.dll           mai_exe_domaininitialize                
+  7)  ABQSMAXplCore.dll           mai_exe_analysis                        
+  8)  ABQSMAXplCore.dll           mai_exe_primary                         
+  9)  ABQSMAXplCore.dll           mai_exe_step                            
+ 10)  ABQSMAXplCore.dll           mai_exe_executivef                      
+</Callstack>
+
+<Memory>
+   <Current>            0 GB </Current>
+   <Resident>           0 GB </Resident>
+   <Physical>         127 GB </Physical>
+   <Limit>              0 GB </Limit>
+   <Accessible>       127 GB </Accessible>
+   <Available>         99 GB </Available>
+   <Allocator>            DL </Allocator>
+</Memory>
+
+<Swap>
+       <Size>         146 GB </Size>
+       <Used>          61 GB </Used>
+       <Free>          84 GB </Free>
+</Swap>
+
+<Directories>
+  <current> C:\Users\tpennock\AppData\Local\Temp\tpennock_Job-2_40004 </current> <free>    226 GB </free>   <used>    249 GB </used> 
+    <indir> D:\tpennock\First delta flume  </indir>   <free>   1833 GB </free>  
+   <outdir> D:\tpennock\First delta flume  </outdir>  <free>   1833 GB </free> 
+   <tmpdir> C:\Users\tpennock\AppData\Local\Temp\tpennock_Job-2_40004 </tmpdir>  <free>    226 GB </free> 
+     <temp> C:\Users\tpennock\AppData\Local\Temp </temp>    <free>    226 GB </free>
+</Directories>
+
+<Installation>
+     <Version> 2023  </Version>
+       <Build> 2023_03_20-20.15.03 RELr425 183417 </Build>
+  <Executable> C:\Users\tpennock\AppData\Local\Temp\tpennock_Job-2_40004\explicit.exe </Executable>
+</Installation>
+

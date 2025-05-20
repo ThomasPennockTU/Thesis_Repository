@@ -1,0 +1,29 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2023_03_20-20.15.03 RELr425 183417
+# Run by tpennock on Tue May 20 10:45:33 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+#: Warning: Permission was denied for "abaqus.rpy"; "abaqus.rpy.7" will be used for this session's replay file.
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=550.666687011719, 
+    height=264.733001708984)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('First delta flume.cae')
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#* *** Error: File open failed (utl_File: CreateFile in OpenUpdate)
+#* error: The process cannot access the file because it is being used by 
+#* another process.
+#* 
+#* file: D:\tpennock\9-Block Flume\First delta flume.cae
