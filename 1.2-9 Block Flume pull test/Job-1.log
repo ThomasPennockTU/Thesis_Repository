@@ -6,19 +6,19 @@ Abaqus License Manager checked out the following licenses:
 Abaqus/Explicit checked out 5 tokens from Flexnet server abaqus.lic.tudelft.nl.
 <83 out of 450 licenses remain available>.
 Begin Analysis Input File Processor
-20-5-2025 13:58:36
+21-5-2025 10:48:19
 Run pre.exe
-20-5-2025 13:58:39
+21-5-2025 10:48:23
 End Analysis Input File Processor
 Begin Abaqus/Explicit Packager
-20-5-2025 13:58:39
+21-5-2025 10:48:23
 PAC_NUM_THREADS VALUE: 1
 Run package.exe
-20-5-2025 13:58:44
+21-5-2025 10:48:27
 End Abaqus/Explicit Packager
 Begin Abaqus/Explicit Analysis
-20-5-2025 13:58:44
+21-5-2025 10:48:27
 Run explicit.exe
-20-5-2025 14:08:54
+21-5-2025 10:58:12
 End Abaqus/Explicit Analysis
 Abaqus JOB Job-1 COMPLETED
