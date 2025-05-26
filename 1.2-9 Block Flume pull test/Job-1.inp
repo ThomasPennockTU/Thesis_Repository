@@ -621,7 +621,13 @@ _PickedSurf493, P, -13540.
 ** 
 ** FIELD OUTPUT: F-Output-1, F-Output-2
 ** 
-*Output, field, variable=PRESELECT
+*Output, field
+*Node Output
+A, RF, U, V
+*Element Output, directions=YES
+BF, EVF, LE, P, PE, PEEQ, PEEQVAVG, PEVAVG, S, SVAVG
+*Contact Output
+CFORCE, CSTRESS
 ** 
 ** HISTORY OUTPUT: H-Output-1, H-Output-2
 ** 
