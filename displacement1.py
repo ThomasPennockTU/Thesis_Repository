@@ -19,6 +19,7 @@ if len(step_names) < 2:
 
 second_step = odb.steps[step_names[1]]
 instance = odb.rootAssembly.instances[instance_name]
+print(step_names)
 
 # --- Collect data ---
 time_vals = []
