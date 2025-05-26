@@ -23,6 +23,7 @@ print(f"Maximum Z: {max_z:.4f} m")
 print(f"Total Height: {height:.4f} m")
 
 # --- Plot histogram of z-coordinates ---
+
 plt.figure(figsize=(8, 5))
 plt.hist(z_coords, bins=20, edgecolor='black')
 plt.title(f'Z-Coordinate Distribution of Nodes in {instance_name}')
