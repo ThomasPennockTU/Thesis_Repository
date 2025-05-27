@@ -1,4 +1,4 @@
-# Ignore everything
+# Ignore everything 1
 *
 
 # But don't ignore folders (needed to allow traversal to workmap)
