@@ -3464,6 +3464,8 @@ _PickedSet481,
 ** Constraint: Constraint-3
 *Rigid Body, ref node=_PickedSet484, analytical surface=Wall-1-lin-1-2.Surf-Wall
 *End Assembly
+*Amplitude, name=Amp-1, definition=SMOOTH STEP
+             0.,              0.,              1.,              1.
 ** 
 ** MATERIALS
 ** 
@@ -3483,14 +3485,22 @@ _PickedSet481,
 *Friction
  0.85,
 *Surface Behavior, pressure-overclosure=HARD
+** 
+** INTERACTIONS
+** 
+** Interaction: Int-2
+*Contact, op=NEW
+*Contact Inclusions, ALL EXTERIOR
+*Contact Property Assignment
+ ,  , IntProp-1
 ** ----------------------------------------------------------------
 ** 
 ** STEP: Loading
 ** 
 *Step, name=Loading, nlgeom=YES
 Gravity
-*Dynamic, Explicit, direct user control
-0.01, 12.
+*Dynamic, Explicit
+, 12.
 *Bulk Viscosity
 0.06, 1.2
 ** 
@@ -3508,17 +3518,8 @@ _PickedSet481, 6, 6
 ** LOADS
 ** 
 ** Name: Gravity   Type: Gravity
-*Dload
+*Dload, amplitude=Amp-1
 _PickedSet426, GRAV, 9.81, 0., -1., 0.
-** 
-** INTERACTIONS
-** 
-** Interaction: Int-1
-*Contact, op=NEW
-*Contact Inclusions, ALL EXTERIOR
-*Contact Property Assignment
- ,  , IntProp-1
-Bottoms , DikeRigid-1.Surf-2 , BLOCK-FILTER
 ** 
 ** OUTPUT REQUESTS
 ** 

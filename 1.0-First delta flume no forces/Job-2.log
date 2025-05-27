@@ -4,22 +4,21 @@ Abaqus 2023
 USING MEMORY DOUG-LEA ALLOCATOR
 Abaqus License Manager checked out the following licenses:
 Abaqus/Explicit checked out 5 tokens from Flexnet server abaqus.lic.tudelft.nl.
-<193 out of 450 licenses remain available>.
+<137 out of 450 licenses remain available>.
 Begin Analysis Input File Processor
-26-5-2025 10:15:48
+26-5-2025 15:52:25
 Run pre.exe
-26-5-2025 10:15:52
+26-5-2025 15:52:31
 End Analysis Input File Processor
 Begin Abaqus/Explicit Packager
-26-5-2025 10:15:52
+26-5-2025 15:52:31
 PAC_NUM_THREADS VALUE: 1
 Run package.exe
-26-5-2025 10:16:14
+26-5-2025 15:52:52
 End Abaqus/Explicit Packager
 Begin Abaqus/Explicit Analysis
-26-5-2025 10:16:14
+26-5-2025 15:52:52
 Run explicit.exe
-26-5-2025 10:16:22
-Abaqus Error: Abaqus/Explicit Analysis exited with an error - Please see the 
-status file for possible error messages if the file exists.
-Abaqus/Analysis exited with errors
+27-5-2025 00:40:05
+End Abaqus/Explicit Analysis
+Abaqus JOB Job-2 COMPLETED
