@@ -1,5 +1,6 @@
 # Ignore everything 1
 *
+1.0-First delta flume/
 
 # But don't ignore folders (needed to allow traversal to workmap)
 !*/
