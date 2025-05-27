@@ -418,6 +418,13 @@ START,        37.25,          4.5
       2,           0.,           0.,           1.
 *Node
       3,           0.,           0.,           2.
+*Nset, nset=Set-1, instance=Block-2-lin-1-5-lin-11-1
+   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,  15,  16
+  17,  18,  19,  20,  21,  22,  23,  24,  25,  32,  33,  40,  41,  48,  49,  56
+  57,  64,  65,  72,  73,  80,  81,  88,  89,  96,  97, 104, 105, 112, 113, 120
+ 121, 128, 129, 136, 137, 144, 145, 152, 153, 160, 161, 168, 169, 170, 171, 172
+ 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188
+ 189, 190, 191, 192
 *Nset, nset=_PickedSet485, internal
  1,
 *Nset, nset=_PickedSet486, internal
@@ -637,7 +644,7 @@ _PickedSet498, 2, 2, 0.2
 ** 
 *Output, field
 *Node Output
-A, RF, U, V
+A, CF, RF, U, V
 *Element Output, directions=YES
 BF, EVF, LE, P, PE, PEEQ, PEEQVAVG, PEVAVG, S, SVAVG
 *Contact Output

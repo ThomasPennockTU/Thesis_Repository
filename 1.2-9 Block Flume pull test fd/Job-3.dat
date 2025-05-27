@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2023                                  Date 26-mei-2025   Time 10:04:29
+   Abaqus 2023                                  Date 26-mei-2025   Time 16:29:00
    For use by DELFT UNIVERSITY OF TECHNOLOGY under license from Dassault Systemes or its subsidiary.
 
 
@@ -130,6 +130,7 @@
   *Elset, elset=ASSEMBLY_BLOCK-2-LIN-1-5-LIN-11-1__PICKEDSET2
   *Node
   *Nset, nset="ASSEMBLY__T-Datum csys-2"
+  *Nset, nset=ASSEMBLY_SET-1
   *Nset, nset=ASSEMBLY__PICKEDSET485
   *Nset, nset=ASSEMBLY__PICKEDSET486
   *Nset, nset=ASSEMBLY__PICKEDSET487
@@ -399,7 +400,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.10    
-       SYSTEM TIME (SEC)    =     0.10    
+       USER TIME (SEC)      =     0.20    
+       SYSTEM TIME (SEC)    =      0.0    
        TOTAL CPU TIME (SEC) =     0.20    
        WALLCLOCK TIME (SEC) =            0

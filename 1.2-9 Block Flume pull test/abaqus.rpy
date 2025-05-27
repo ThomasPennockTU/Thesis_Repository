@@ -2,7 +2,7 @@
 #
 # Abaqus/CAE Release 2023 replay file
 # Internal Version: 2023_03_20-20.15.03 RELr425 183417
-# Run by tpennock on Wed May 21 11:39:53 2025
+# Run by tpennock on Mon May 26 16:11:43 2025
 #
 
 # from driverUtils import executeOnCaeGraphicsStartup
@@ -28,13 +28,42 @@ a = mdb.models['Model-1'].rootAssembly
 session.viewports['Viewport: 1'].setValues(displayedObject=a)
 session.viewports['Viewport: 1'].assemblyDisplay.setValues(
     optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=56.0107, 
-    farPlane=97.4169, width=54.7773, height=19.0282, cameraPosition=(76.6743, 
-    47.1273, 4.54603), cameraUpVector=(-0.811361, 0.57735, -0.0914366), 
-    cameraTarget=(14.8429, 3.12913, -2.42207))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=59.6189, 
-    farPlane=93.8086, width=10.1369, height=3.52131, viewOffsetX=1.74348, 
-    viewOffsetY=-3.08994)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.7524, 
+    farPlane=92.6616, width=25.3582, height=8.80881, viewOffsetX=6.33672, 
+    viewOffsetY=-1.41278)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.5588, 
+    farPlane=98.2235, width=26.1249, height=9.07512, cameraPosition=(78.5704, 
+    47.1273, 15.5755), cameraUpVector=(-0.791081, 0.57735, -0.202133), 
+    cameraTarget=(18.2845, 3.12913, 0.171499), viewOffsetX=6.52829, 
+    viewOffsetY=-1.45549)
+o3 = session.openOdb(
+    name='D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-2.odb')
+#: Model: D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     13
+#: Number of Meshes:             14
+#: Number of Element Sets:       0
+#: Number of Node Sets:          4
+#: Number of Steps:              2
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-2.odb'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=47.6693, 
+    farPlane=83.9509, width=49.6904, height=17.2612, cameraPosition=(67.3936, 
+    40.3687, 5.4943), cameraUpVector=(-0.806837, 0.57735, -0.125223), 
+    cameraTarget=(14.5814, 2.57775, -2.70228))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=49.7182, 
+    farPlane=81.9019, width=24.6861, height=8.57534, viewOffsetX=2.57894, 
+    viewOffsetY=-3.88354)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=TIME_HISTORY)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
 o3 = session.openOdb(
     name='D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb')
 #: Model: D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb
@@ -51,159 +80,101 @@ a = mdb.models['Model-1'].rootAssembly
 session.viewports['Viewport: 1'].setValues(displayedObject=a)
 session.viewports['Viewport: 1'].setValues(
     displayedObject=session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb'])
-session.viewports['Viewport: 1'].view.setValues(nearPlane=48.2567, 
-    farPlane=82.428, width=50.3028, height=17.4739, cameraPosition=(52.8834, 
-    40.3687, 34.3811), cameraTarget=(15.0925, 2.57775, -3.40984))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=48.3149, 
-    farPlane=83.9935, width=50.3635, height=17.495, cameraPosition=(68.1639, 
-    40.3687, 2.72131), cameraUpVector=(-0.811203, 0.57735, -0.0928284), 
-    cameraTarget=(15.066, 2.57775, -3.35487))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=51.744, 
-    farPlane=80.5645, width=3.97563, height=1.38103, viewOffsetX=-0.256337, 
-    viewOffsetY=-2.88028)
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-xyList = xyPlot.xyDataListFromField(odb=odb, outputPosition=INTEGRATION_POINT, 
-    variable=(('S', INTEGRATION_POINT, ((COMPONENT, 'S22'), )), ), 
-    elementPick=(('BLOCK-2-LIN-1-5-LIN-11-1', 1, ('[#0 #2000 ]', )), ), )
-xyp = session.XYPlot('XYPlot-1')
-chartName = xyp.charts.keys()[0]
-chart = xyp.charts[chartName]
-curveList = session.curveSet(xyData=xyList)
-chart.setValues(curvesToPlot=curveList)
-session.charts[chartName].autoColor(lines=True, symbols=True)
-session.viewports['Viewport: 1'].setValues(displayedObject=xyp)
-xQuantity = visualization.QuantityType(type=TIME)
-yQuantity = visualization.QuantityType(type=STRESS)
-session.xyDataObjects['_S:S22 PI: BLOCK-2-LIN-1-5-LIN-11-1 E: 46 IP: 1'].setValues(
-    data=((0, 0), (0.0500067, -14330.3), (0.100014, -26953.2), (0.150005, 
-    -4697.13), (0.200012, -47069), (0.250003, 2083.42), (0.30001, -10284.4), (
-    0.350001, 5368.97), (0.400007, -17385.4), (0.450014, 15150.5), (0.500004, 
-    -34573.4), (0.550011, -16722.3), (0.600002, 33116.5), (0.650008, -30513.2), 
-    (0.700015, 5027.5), (0.750006, -15254.7), (0.800012, -9330.69), (0.850003, 
-    -37959.1), (0.900009, 48195.6), (0.95, 45131.2), (1, 8670.94), (1, 
-    8670.94), (1.6, -7862.87), (2.20001, -10484), (2.8, -34386.1), (3.4, 
-    1845.43), (4, 20805.2), (4.6, -14348.2), (5.2, 9137.75), (5.8, 3978.73), (
-    6.4, 2896.49), (7.00002, 2976.29), (7.60001, 2980.13), (8.20001, 2956.89), 
-    (8.80001, 4218.34), (9.40001, 5541.61), (10, 8106.03), (10.6, 1778.84), (
-    11.2, 15395.2), (11.8, 29755.2), (12.4, 40550.3), ), 
-    sourceDescription='Data modified in editor', axis1QuantityType=xQuantity, 
-    axis2QuantityType=yQuantity, )
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-session.viewports['Viewport: 1'].setValues(displayedObject=odb)
-session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
-    UNDEFORMED, ))
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-xyList = xyPlot.xyDataListFromField(odb=odb, outputPosition=INTEGRATION_POINT, 
-    variable=(('S', INTEGRATION_POINT, ((COMPONENT, 'S22'), )), ), 
-    elementPick=(('BLOCK-2-LIN-1-4-LIN-11-1', 1, ('[#0 #4 ]', )), ), )
-xyp = session.xyPlots['XYPlot-1']
-chartName = xyp.charts.keys()[0]
-chart = xyp.charts[chartName]
-curveList = session.curveSet(xyData=xyList)
-chart.setValues(curvesToPlot=curveList)
-session.charts[chartName].autoColor(lines=True, symbols=True)
-session.viewports['Viewport: 1'].setValues(displayedObject=xyp)
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-session.viewports['Viewport: 1'].setValues(displayedObject=odb)
-session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
-    UNDEFORMED, ))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=47.28, 
-    farPlane=85.0285, width=48.3249, height=16.3151, viewOffsetX=5.33385, 
-    viewOffsetY=-0.311109)
-session.animationOptions.setValues(frameRate=20)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=50.9327, 
-    farPlane=81.3758, width=9.28065, height=3.13327, viewOffsetX=0.355861, 
-    viewOffsetY=-2.69153)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=48.0098, 
+    farPlane=83.6714, width=50.0454, height=17.3845, cameraPosition=(67.9926, 
+    40.3687, -0.815188), cameraUpVector=(-0.815987, 0.57735, -0.0288299), 
+    cameraTarget=(14.5814, 2.57775, -2.70228))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=50.403, 
+    farPlane=81.2782, width=20.3728, height=7.07699, viewOffsetX=2.05883, 
+    viewOffsetY=-3.78857)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=NONE)
 session.viewports['Viewport: 1'].animationController.setValues(
     animationType=TIME_HISTORY)
 session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20474, 
-    farPlane=20917.4, width=7.82446, height=2.64164, cameraPosition=(17053.7, 
-    11931.4, 1905.89), viewOffsetX=-38.963, viewOffsetY=152.31)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=862.256, 
+    farPlane=1326, width=20.4515, height=7.10434, viewOffsetX=-8.95893, 
+    viewOffsetY=103.486)
 session.viewports['Viewport: 1'].animationController.setValues(
     animationType=NONE)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=943.29, 
+    farPlane=1336.79, width=5.80045, height=2.01493, viewOffsetX=-11.1812, 
+    viewOffsetY=113.33)
 a = mdb.models['Model-1'].rootAssembly
 session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.5404, 
+    farPlane=97.2419, width=11.7103, height=4.06787, viewOffsetX=5.33561, 
+    viewOffsetY=-2.25909)
 a = mdb.models['Model-1'].rootAssembly
-f1 = a.instances['Block-2-lin-1-5-lin-11-1'].faces
-faces1 = f1.getSequenceFromMask(mask=('[#10 ]', ), )
-leaf = dgm.LeafFromGeometry(faceSeq=faces1)
-session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
-    leaf=leaf)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=264.118, 
-    farPlane=265.379, width=3.26523, height=1.18362, cameraPosition=(232.765, 
-    158.199, 22.1367), viewOffsetX=0.702039, viewOffsetY=-4.01022)
-leaf = dgm.Leaf(leafType=DEFAULT_MODEL)
-session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
-    leaf=leaf)
-a = mdb.models['Model-1'].rootAssembly
-i1 = a.instances['Block-2-lin-1-5-lin-11-1']
+i1 = a.instances['Wall-1-lin-1-2']
 leaf = dgm.LeafFromInstance((i1, ))
-session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
-    leaf=leaf)
-session.viewports['Viewport: 1'].setValues(
-    displayedObject=session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb'])
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-session.viewports['Viewport: 1'].setValues(displayedObject=odb)
-leaf = dgo.LeafFromPartInstance(partInstanceName=("BLOCK-2-LIN-1-5-LIN-11-1", 
-    ))
-session.viewports['Viewport: 1'].odbDisplay.displayGroup.replace(leaf=leaf)
-session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
-    CONTOURS_ON_DEF, ))
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20881.5, 
-    farPlane=20882.7, width=2.72538, height=0.920125, viewOffsetX=-40.4381, 
-    viewOffsetY=155.622)
-session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
-    variableLabel='CPRESS     General_Contact_Domain', outputPosition=NODAL, )
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20881.4, 
-    farPlane=20882.7, width=2.72536, height=0.92012, cameraPosition=(17053.7, 
-    11189.8, 4556.55), cameraUpVector=(-0.811203, 0.583377, 0.0402646), 
-    cameraTarget=(265.314, -13.9237, -19.3303), viewOffsetX=-40.4379, 
-    viewOffsetY=155.621)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20881.3, 
-    farPlane=20882.6, width=2.72535, height=0.920116, cameraPosition=(14462.2, 
-    11189.8, 10114.5), cameraUpVector=(-0.775935, 0.583377, -0.239993), 
-    cameraTarget=(256.227, -13.9237, 65.6071), viewOffsetX=-40.4377, 
-    viewOffsetY=155.62)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20881.4, 
-    farPlane=20882.5, width=1.37917, height=0.465625, viewOffsetX=-40.7467, 
-    viewOffsetY=155.663)
-a = mdb.models['Model-1'].rootAssembly
-session.viewports['Viewport: 1'].setValues(displayedObject=a)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=263.899, 
-    farPlane=265.323, width=3.26253, height=1.18263, cameraPosition=(153.755, 
-    158.199, 164.636), cameraUpVector=(-0.511549, 0.57735, -0.636385), 
-    cameraTarget=(16.3588, 3.12913, -6.2897), viewOffsetX=0.701457, 
-    viewOffsetY=-4.0069)
-odb = session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb']
-session.viewports['Viewport: 1'].setValues(displayedObject=odb)
-session.viewports['Viewport: 1'].animationController.setValues(
-    animationType=TIME_HISTORY)
-session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
-session.animationOptions.setValues(frameRate=53)
-session.viewports['Viewport: 1'].animationController.setValues(
-    animationType=NONE)
-session.viewports['Viewport: 1'].animationController.setValues(
-    animationType=TIME_HISTORY)
-session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
-session.viewports['Viewport: 1'].animationController.setValues(
-    animationType=NONE)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20881.3, 
-    farPlane=20882.7, width=3.89211, height=1.31403, viewOffsetX=-41.616, 
-    viewOffsetY=155.738)
-leaf = dgo.Leaf(leafType=DEFAULT_MODEL)
-session.viewports['Viewport: 1'].odbDisplay.displayGroup.replace(leaf=leaf)
-leaf = dgo.Leaf(leafType=DEFAULT_MODEL)
-session.viewports['Viewport: 1'].odbDisplay.displayGroup.replace(leaf=leaf)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20870.1, 
-    farPlane=20902, width=22.1848, height=7.48989, viewOffsetX=-39.5817, 
-    viewOffsetY=156.727)
-session.viewports['Viewport: 1'].view.setValues(nearPlane=20871.5, 
-    farPlane=20904.2, width=22.1863, height=7.49041, cameraPosition=(17638.9, 
-    11189.8, 731.91), cameraUpVector=(-0.78292, 0.583377, 0.216122), 
-    cameraTarget=(256.76, -13.9237, -74.4055), viewOffsetX=-39.5845, 
-    viewOffsetY=156.738)
-a = mdb.models['Model-1'].rootAssembly
-session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.remove(leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.6101, 
+    farPlane=97.1621, width=10.6799, height=3.70992, viewOffsetX=4.9575, 
+    viewOffsetY=-1.79393)
 session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
     predefinedFields=ON, connectors=ON)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumAxisByPrincipalAxis(principalAxis=YAXIS)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumAxisByPrincipalAxis(principalAxis=YAXIS)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumAxisByPrincipalAxis(principalAxis=YAXIS)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumAxisByPrincipalAxis(principalAxis=YAXIS)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=63.1603, 
+    farPlane=96.6118, width=3.54065, height=1.22993, viewOffsetX=3.2214, 
+    viewOffsetY=-1.56946)
+a = mdb.models['Model-1'].rootAssembly
+v1 = a.instances['Block-2-lin-1-5-lin-11-1'].vertices
+e1 = a.instances['Block-2-lin-1-8-lin-2-1-lin-lin-11-1-5'].edges
+a.DatumCsysByThreePoints(origin=v1[4], name='Datum csys-2', 
+    coordSysType=CARTESIAN, 
+    point1=a.instances['Block-2-lin-1-8-lin-2-1-lin-lin-11-1-5'].InterestingPoint(
+    edge=e1[4], rule=MIDDLE), line2=(0.075, 0.225625, 0.003953))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=62.657, 
+    farPlane=97.1152, width=10.3822, height=3.5464, viewOffsetX=4.79298, 
+    viewOffsetY=-0.981554)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb'])
+o3 = session.openOdb(
+    name='D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-2.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=50.488, 
+    farPlane=81.132, width=14.6199, height=4.99396, viewOffsetX=1.87056, 
+    viewOffsetY=-3.5135)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=ON, geometricRestrictions=ON, stopConditions=ON)
+o3 = session.openOdb(
+    name='D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['D:/tpennock/GitHub/Thesis_Repository/1.2-9 Block Flume pull test/Job-1.odb'])
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=61.1104, 
+    farPlane=98.6618, width=31.2239, height=10.6656, viewOffsetX=10.0621, 
+    viewOffsetY=0.907825)
+session.viewports['Viewport: 1'].view.setValues(session.views['Iso'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.5936, 
+    farPlane=92.7749, width=27.9103, height=9.53375, viewOffsetX=2.20856, 
+    viewOffsetY=-1.49666)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: The job input file "Job-1.inp" has been submitted for analysis.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Job Job-1: Abaqus/Explicit Packager completed successfully.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.3448, 
+    farPlane=92.0236, width=16.8849, height=6.07176, viewOffsetX=2.99483, 
+    viewOffsetY=-1.99002)
+mdb.save()
+#: The model database has been saved to "D:\tpennock\GitHub\Thesis_Repository\1.2-9 Block Flume pull test\First delta flume.cae".

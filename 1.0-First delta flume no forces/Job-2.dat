@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2023                                  Date 26-mei-2025   Time 10:15:50
+   Abaqus 2023                                  Date 26-mei-2025   Time 15:52:27
    For use by DELFT UNIVERSITY OF TECHNOLOGY under license from Dassault Systemes or its subsidiary.
 
 
@@ -1695,9 +1695,9 @@
   *Step, name=Loading, nlgeom=YES
   *Step, name=Loading, nlgeom=YES
   Gravity                                                                         
-  *dynamic, explicit, directusercontrol
+  *dynamic, explicit
   *boundary
-  *dload
+  *dload, amplitude=AMP-1
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
@@ -1707,8 +1707,14 @@
   *surfaceinteraction, name=INTPROP-1
   *friction
   *surfacebehavior, pressure-overclosure=HARD
+  *contact, op=NEW
+
+ ***WARNING: OP=NEW on *CONTACT is ignored when the general contact definition 
+             is specified as model data.
+  *contactinclusions, allexterior
+  *contactpropertyassignment
   *Step, name=Loading, nlgeom=YES
-  *dynamic, explicit, directusercontrol
+  *dynamic, explicit
   *boundary
 
  ***WARNING: THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS 
@@ -1716,9 +1722,6 @@
              STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL 
              DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN 
              DISPLACEMENTS ACROSS STEPS ARE IGNORED
-  *contact, op=NEW
-  *contactinclusions, allexterior
-  *contactpropertyassignment
   *endstep
 
 
@@ -1741,6 +1744,6 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =      1.5    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =      1.5    
-       WALLCLOCK TIME (SEC) =            2
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =      1.6    
+       WALLCLOCK TIME (SEC) =            3

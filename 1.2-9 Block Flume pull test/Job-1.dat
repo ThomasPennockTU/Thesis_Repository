@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2023                                  Date 21-mei-2025   Time 10:48:21
+   Abaqus 2023                                  Date 26-mei-2025   Time 16:17:38
    For use by DELFT UNIVERSITY OF TECHNOLOGY under license from Dassault Systemes or its subsidiary.
 
 
@@ -393,6 +393,6 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.30    
-       WALLCLOCK TIME (SEC) =            1
+       SYSTEM TIME (SEC)    =      0.0    
+       TOTAL CPU TIME (SEC) =     0.20    
+       WALLCLOCK TIME (SEC) =            0
