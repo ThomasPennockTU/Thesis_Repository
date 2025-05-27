@@ -1,0 +1,860 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2023 replay file
+# Internal Version: 2023_03_20-20.15.03 RELr425 183417
+# Run by tpennock on Tue May 27 09:54:46 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=532.666687011719, 
+    height=243.115371704102)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+openMdb('First delta flume.cae')
+#: The model database "D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume no forces w spacers\First delta flume.cae" has been opened.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['Block']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+#--- Recover file: 'First delta flume.rec' ---
+# -*- coding: mbcs -*- 
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'SVAVG', 'PE', 'PEVAVG', 'PEEQ', 'PEEQVAVG', 'LE', 'U', 'V', 'A', 
+    'RF', 'RT', 'CF', 'SF', 'BF', 'P', 'CSTRESS', 'EVF'))
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'TUD1006537', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'MAXIMUM NUMBER OF OUTPUT RELATED WARNINGS HAS BEEN ISSUED. SUBSEQUENT WARNINGS WILL BE SUPPRESSED. SET ABA_OUTPUT_DIAGNOSTICS TO unlimited TO OVERRIDE.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OP=NEW on *CONTACT is ignored when the general contact definition is specified as model data.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'TUD1006537', 'handle': 26336, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 103 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'TUD1006537', 'handle': 8928, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 1.19284413813148e-05, 'internalEnergy': 0.0, 
+    'stepTime': 0.0, 'totalEnergy': 0.0, 'jobName': 'Job-1', 
+    'artificialEnergy': 0.0, 'phase': EXPLICIT_PHASE, 'step': 1, 
+    'increment': 0, 'distortionContrEnergy': 0.0, 'externalWork': 0.0, 
+    'kineticEnergy': 0.0, 'wallTime': 3.0})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0702343210577965, 
+    'stableTimeIncrement': 1.48145436469349e-05, 
+    'internalEnergy': 0.0779425948858261, 'stepTime': 0.0702343210577965, 
+    'totalEnergy': 0.000373417715309188, 'jobName': 'Job-1', 
+    'artificialEnergy': 0.0760864764451981, 'phase': EXPLICIT_PHASE, 'step': 1, 
+    'increment': 4707, 'distortionContrEnergy': 0.0, 
+    'externalWork': -0.0442758239805698, 'kineticEnergy': 0.218292191624641, 
+    'wallTime': 122.0})
+#--- End of Recover file ------
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.6339, 
+    farPlane=92.7801, width=27.4785, height=9.54533, viewOffsetX=1.08375, 
+    viewOffsetY=0.337287)
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['Block-2-lin-1-8-lin-8-1'].cells
+cells1 = c1.getSequenceFromMask(mask=('[#1 ]', ), )
+c2 = a.instances['Block-2-lin-1-8-lin-2-1-lin-8-1'].cells
+cells2 = c2.getSequenceFromMask(mask=('[#1 ]', ), )
+leaf = dgm.LeafFromGeometry(cellSeq=cells1+cells2)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.remove(leaf=leaf)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['Wall-1-lin-1-2'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#8 ]', ), )
+leaf = dgm.LeafFromGeometry(faceSeq=faces1)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+leaf = dgm.Leaf(leafType=DEFAULT_MODEL)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+a = mdb.models['Model-1'].rootAssembly
+i1 = a.instances['Wall-1-lin-1-2']
+leaf = dgm.LeafFromInstance((i1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.remove(leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.7639, 
+    farPlane=92.6212, width=24.5926, height=8.54286, viewOffsetX=5.26656, 
+    viewOffsetY=0.82526)
+p1 = mdb.models['Model-1'].parts['DikeRigid']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['DikeRigid']
+s = p.features['3D Analytic rigid shell-1'].sketch
+mdb.models['Model-1'].ConstrainedSketch(name='__edit__', objectToCopy=s)
+s1 = mdb.models['Model-1'].sketches['__edit__']
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+p.projectReferencesOntoSketch(sketch=s1, 
+    upToFeature=p.features['3D Analytic rigid shell-1'], filter=COPLANAR_EDGES)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=104.83, 
+    farPlane=116.146, width=41.9951, height=15.3445, cameraPosition=(56.7732, 
+    20.0083, 110.488), cameraTarget=(56.7732, 20.0083, 0))
+d[8].setValues(textPoint=(51.3444671630859, 21.9533843994141))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=102.329, 
+    farPlane=118.647, width=76.7851, height=28.0563, cameraPosition=(44.0993, 
+    16.0398, 110.488), cameraTarget=(44.0993, 16.0398, 0))
+d[8].setValues(value=12.1, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=105.757, 
+    farPlane=115.219, width=29.0686, height=10.6213, cameraPosition=(52.0685, 
+    19.166, 110.488), cameraTarget=(52.0685, 19.166, 0))
+s1.ObliqueDimension(vertex1=v[0], vertex2=v[1], textPoint=(50.4285430908203, 
+    21.2977619171143), value=12.1)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=101.275, 
+    farPlane=119.701, width=88.3578, height=32.2848, cameraPosition=(63.0903, 
+    12.9239, 110.488), cameraTarget=(63.0903, 12.9239, 0))
+s1.delete(objectList=(d[6], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=101.301, 
+    farPlane=119.675, width=89.8315, height=32.8232, cameraPosition=(65.6739, 
+    13.0675, 110.488), cameraTarget=(65.6739, 13.0675, 0))
+s1.delete(objectList=(d[4], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=100.413, 
+    farPlane=120.563, width=100.735, height=36.8072, cameraPosition=(61.3855, 
+    23.4942, 110.488), cameraTarget=(61.3855, 23.4942, 0))
+s1.HorizontalDimension(vertex1=v[2], vertex2=v[1], textPoint=(48.6881446838379, 
+    11.7003841400146), value=17.5)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=100.918, 
+    farPlane=120.058, width=94.9755, height=34.7028, cameraPosition=(51.5486, 
+    26.856, 110.488), cameraTarget=(51.5486, 26.856, 0))
+s1.VerticalDimension(vertex1=v[1], vertex2=v[2], textPoint=(84.8910522460938, 
+    19.2189617156982), value=5.8)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=104.493, 
+    farPlane=116.483, width=45.0566, height=16.4631, cameraPosition=(53.1419, 
+    24.0251, 110.488), cameraTarget=(53.1419, 24.0251, 0))
+s1.delete(objectList=(d[9], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=106.989, 
+    farPlane=113.987, width=13.2801, height=4.85237, cameraPosition=(48.3337, 
+    19.4366, 110.488), cameraTarget=(48.3337, 19.4366, 0))
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.482, 
+    farPlane=113.494, width=6.51911, height=2.382, cameraPosition=(47.5993, 
+    19.0823, 110.488), cameraTarget=(47.5993, 19.0823, 0))
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=105.361, 
+    farPlane=115.615, width=34.577, height=12.634, cameraPosition=(55.6977, 
+    21.4789, 110.488), cameraTarget=(55.6977, 21.4789, 0))
+s1.ParallelConstraint(entity1=g[11], entity2=g[9])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=105.931, 
+    farPlane=115.045, width=26.795, height=9.79054, cameraPosition=(55.6529, 
+    21.4122, 110.488), cameraTarget=(55.6529, 21.4122, 0))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=104.666, 
+    farPlane=116.31, width=42.8283, height=15.6489, cameraPosition=(62.4077, 
+    23.7935, 110.488), cameraTarget=(62.4077, 23.7935, 0))
+s1.ParallelConstraint(entity1=g[11], entity2=g[9])
+s1.ParallelConstraint(entity1=g[9], entity2=g[7], addUndoState=False)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=106.988, 
+    farPlane=113.988, width=13.1676, height=4.81127, cameraPosition=(48.9782, 
+    18.8742, 110.488), cameraTarget=(48.9782, 18.8742, 0))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.788, 
+    farPlane=113.188, width=2.65676, height=0.970744, cameraPosition=(47.1196, 
+    18.7596, 110.488), cameraTarget=(47.1196, 18.7596, 0))
+s1.TangentConstraint(entity1=g[11], entity2=g[10])
+s1.TangentConstraint(entity1=g[10], entity2=g[11])
+s1.PerpendicularConstraint(entity1=g[11], entity2=g[10])
+s1.PerpendicularConstraint(entity1=g[10], entity2=g[11])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=103.765, 
+    farPlane=117.211, width=55.5858, height=20.3103, cameraPosition=(54.6379, 
+    22.2463, 110.488), cameraTarget=(54.6379, 22.2463, 0))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.605, 
+    farPlane=113.371, width=4.98857, height=1.82276, cameraPosition=(47.7751, 
+    18.9836, 110.488), cameraTarget=(47.7751, 18.9836, 0))
+s1.EqualLengthConstraint(entity1=g[8], entity2=g[10])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=105.658, 
+    farPlane=115.319, width=34.0043, height=12.4247, cameraPosition=(50.6341, 
+    20.0498, 110.488), cameraTarget=(50.6341, 20.0498, 0))
+s1.undo()
+s1.delete(objectList=(d[8], ))
+s1.ObliqueDimension(vertex1=v[0], vertex2=v[1], textPoint=(51.5877532958984, 
+    21.7560272216797), value=12.1)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=98.6829, 
+    farPlane=122.293, width=119.953, height=43.8292, cameraPosition=(51.9286, 
+    23.1852, 110.488), cameraTarget=(51.9286, 23.1852, 0))
+s1.delete(objectList=(d[11], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.391, 
+    farPlane=113.585, width=7.85877, height=2.87149, cameraPosition=(46.105, 
+    18.7797, 110.488), cameraTarget=(46.105, 18.7797, 0))
+s1.EqualLengthConstraint(entity1=g[8], entity2=g[10])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=100.069, 
+    farPlane=120.907, width=107.463, height=39.2656, cameraPosition=(69.0832, 
+    24.6099, 110.488), cameraTarget=(69.0832, 24.6099, 0))
+s1.delete(objectList=(d[3], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=106.462, 
+    farPlane=114.514, width=20.0848, height=7.33871, cameraPosition=(45.6482, 
+    19.4135, 110.488), cameraTarget=(45.6482, 19.4135, 0))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=103.926, 
+    farPlane=117.05, width=53.4614, height=19.5341, cameraPosition=(39.9227, 
+    21.6632, 110.488), cameraTarget=(39.9227, 21.6632, 0))
+s1.undo()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.819, 
+    farPlane=113.157, width=2.2261, height=0.813388, cameraPosition=(58.1175, 
+    22.2346, 110.488), cameraTarget=(58.1175, 22.2346, 0))
+s1.delete(objectList=(c[32], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.166, 
+    farPlane=113.81, width=10.9287, height=3.99321, cameraPosition=(46.0473, 
+    18.8874, 110.488), cameraTarget=(46.0473, 18.8874, 0))
+s1.EqualLengthConstraint(entity1=g[8], entity2=g[10])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.799, 
+    farPlane=113.177, width=2.54053, height=0.928277, cameraPosition=(58.0587, 
+    22.2822, 110.488), cameraTarget=(58.0587, 22.2822, 0))
+s1.VerticalDimension(vertex1=v[1], vertex2=v[2], textPoint=(85.3356475830078, 
+    20.3976745605469), value=5.8)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=107.9, 
+    farPlane=113.076, width=1.1781, height=0.430462, cameraPosition=(58.2077, 
+    22.3936, 110.488), cameraTarget=(58.2077, 22.3936, 0))
+s1.delete(objectList=(c[27], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=102.549, 
+    farPlane=118.427, width=70.111, height=25.6176, cameraPosition=(61.3851, 
+    23.2434, 110.488), cameraTarget=(61.3851, 23.2434, 0))
+s1.delete(objectList=(d[12], ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=103.834, 
+    farPlane=117.142, width=55.2345, height=20.182, cameraPosition=(64.8964, 
+    21.9443, 110.488), cameraTarget=(64.8964, 21.9443, 0))
+d[13].setValues(value=53.8, )
+d[13].setValues(value=5.83, )
+s1.undo()
+s1.undo()
+d[13].setValues(value=5.83, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=102.46, 
+    farPlane=118.516, width=70.5119, height=25.7641, cameraPosition=(59.9986, 
+    11.0912, 110.488), cameraTarget=(59.9986, 11.0912, 0))
+d[10].setValues(value=17.48, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=103.336, 
+    farPlane=117.64, width=61.2265, height=22.3714, cameraPosition=(62.0272, 
+    22.413, 110.488), cameraTarget=(62.0272, 22.413, 0))
+d[13].setValues(value=5.82636, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=99.5083, 
+    farPlane=121.468, width=115.066, height=42.0438, cameraPosition=(68.9894, 
+    27.4416, 110.488), cameraTarget=(68.9894, 27.4416, 0))
+d[10].setValues(value=17.47907, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=102.767, 
+    farPlane=118.209, width=70.1369, height=25.6271, cameraPosition=(59.7822, 
+    14.954, 110.488), cameraTarget=(59.7822, 14.954, 0))
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['DikeRigid']
+p.features['3D Analytic rigid shell-1'].setValues(sketch=s1)
+del mdb.models['Model-1'].sketches['__edit__']
+p = mdb.models['Model-1'].parts['DikeRigid']
+p.regenerate()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=44.0036, 
+    farPlane=81.5298, width=94.2337, height=32.7344, viewOffsetX=-2.07439, 
+    viewOffsetY=0.577062)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.023, 
+    farPlane=92.3622, width=22.4388, height=7.79468, viewOffsetX=3.74603, 
+    viewOffsetY=0.573659)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2', 'Block-2-lin-1-8', 
+    'Block-2-lin-1-7', 'Block-2-lin-1-6', 'Block-2-lin-1-5', 'Block-2-lin-1-4', 
+    'Block-2-lin-1-3', 'Block-2-lin-1-2', 'Block-2', 'HalfBlock-1'), vector=(
+    -0.996117, 0.332039, 0.0))
+#: The instances were translated by -996.117E-03, 332.039E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.7896, 
+    farPlane=91.5955, width=11.7857, height=4.09405, viewOffsetX=-1.93079, 
+    viewOffsetY=2.04191)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1', 
+    'Block-2-lin-1-8-lin-2-1-lin-1-2', 'Block-2-lin-1-8-lin-2-1-lin-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin-1-4', 'Block-2-lin-1-8-lin-2-1-lin-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin-1-6', 'Block-2-lin-1-8-lin-2-1-lin-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin-1-8', 'Block-2-lin-1-8-lin-2-1-lin-1-9'), 
+    vector=(-0.948683, 0.316228, 0.0))
+#: The instances were translated by -948.683E-03, 316.228E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-2-1', 
+    'Block-2-lin-1-8-lin-2-1-1', 'Block-2-lin-1-7-lin-2-1', 
+    'Block-2-lin-1-6-lin-2-1', 'Block-2-lin-1-5-lin-2-1', 
+    'Block-2-lin-1-4-lin-2-1', 'Block-2-lin-1-3-lin-2-1', 
+    'Block-2-lin-1-2-lin-2-1', 'Block-2-lin-2-1', 'HalfBlock-1-lin-2-1'), 
+    vector=(-0.901249, 0.300417, 0.0))
+#: The instances were translated by -901.249E-03, 300.417E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-2-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-2-1'), vector=(-0.853815, 0.284605, 0.0))
+#: The instances were translated by -853.815E-03, 284.605E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-3-1', 'Block-2-lin-3-1', 
+    'Block-2-lin-1-2-lin-3-1', 'Block-2-lin-1-3-lin-3-1', 
+    'Block-2-lin-1-5-lin-3-1', 'Block-2-lin-1-4-lin-3-1', 
+    'Block-2-lin-1-6-lin-3-1', 'Block-2-lin-1-7-lin-3-1', 
+    'Block-2-lin-1-8-lin-3-1', 'HalfBlock-1-lin-1-2-lin-3-1'), vector=(
+    -0.806381, 0.268794, 0.0))
+#: The instances were translated by -806.381E-03, 268.794E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9873, 
+    farPlane=91.3978, width=8.87275, height=3.08217, viewOffsetX=-1.28472, 
+    viewOffsetY=1.05367)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-3-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-3-1'), vector=(-0.758947, 0.252982, 0.0))
+#: The instances were translated by -758.947E-03, 252.982E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-4-1', 
+    'Block-2-lin-1-8-lin-4-1', 'Block-2-lin-1-7-lin-4-1', 
+    'Block-2-lin-1-6-lin-4-1', 'Block-2-lin-1-5-lin-4-1', 
+    'Block-2-lin-1-4-lin-4-1', 'Block-2-lin-1-3-lin-4-1', 
+    'Block-2-lin-1-2-lin-4-1', 'Block-2-lin-4-1', 'HalfBlock-1-lin-4-1'), 
+    vector=(-0.711512, 0.237171, 0.0))
+#: The instances were translated by -711.512E-03, 237.171E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-4-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-4-1'), vector=(-0.664078, 0.22136, 0.0))
+#: The instances were translated by -664.078E-03, 221.36E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-5-1', 
+    'Block-2-lin-1-8-lin-5-1', 'Block-2-lin-1-7-lin-5-1', 
+    'Block-2-lin-1-6-lin-5-1', 'Block-2-lin-1-5-lin-5-1', 
+    'Block-2-lin-1-4-lin-5-1', 'Block-2-lin-1-3-lin-5-1', 
+    'Block-2-lin-1-2-lin-5-1', 'Block-2-lin-5-1', 'HalfBlock-1-lin-5-1'), 
+    vector=(-0.616644, 0.205548, 0.0))
+#: The instances were translated by -616.644E-03, 205.548E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-5-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-5-1'), vector=(-0.56921, 0.189737, 0.0))
+#: The instances were translated by -569.21E-03, 189.737E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.523, 
+    farPlane=91.8622, width=14.8696, height=5.16532, viewOffsetX=1.53448, 
+    viewOffsetY=0.0555123)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-6-1', 
+    'Block-2-lin-1-8-lin-6-1', 'Block-2-lin-1-7-lin-6-1', 
+    'Block-2-lin-1-6-lin-6-1', 'Block-2-lin-1-5-lin-6-1', 
+    'Block-2-lin-1-4-lin-6-1', 'Block-2-lin-1-3-lin-6-1', 
+    'Block-2-lin-1-2-lin-6-1', 'Block-2-lin-6-1', 'HalfBlock-1-lin-6-1'), 
+    vector=(-0.521776, 0.173925, 0.0))
+#: The instances were translated by -521.776E-03, 173.925E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-6-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-6-1'), vector=(-0.474342, 0.158114, 0.0))
+#: The instances were translated by -474.342E-03, 158.114E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-7-1', 
+    'Block-2-lin-1-8-lin-7-1', 'Block-2-lin-1-7-lin-7-1', 
+    'Block-2-lin-1-6-lin-7-1', 'Block-2-lin-1-5-lin-7-1', 
+    'Block-2-lin-1-4-lin-7-1', 'Block-2-lin-1-3-lin-7-1', 
+    'Block-2-lin-1-2-lin-7-1', 'Block-2-lin-7-1', 'HalfBlock-1-lin-7-1'), 
+    vector=(-0.426907, 0.142303, 0.0))
+#: The instances were translated by -426.907E-03, 142.303E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.8624, 
+    farPlane=91.5227, width=10.5951, height=3.68045, viewOffsetX=1.52536, 
+    viewOffsetY=-0.578907)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-7-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-7-1'), vector=(-0.379473, 0.126491, 0.0))
+#: The instances were translated by -379.473E-03, 126.491E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-8-1', 
+    'Block-2-lin-1-8-lin-8-1', 'Block-2-lin-1-7-lin-8-1', 
+    'Block-2-lin-1-6-lin-8-1', 'Block-2-lin-1-5-lin-8-1', 
+    'Block-2-lin-1-4-lin-8-1', 'Block-2-lin-1-3-lin-8-1', 
+    'Block-2-lin-1-2-lin-8-1', 'Block-2-lin-8-1', 'HalfBlock-1-lin-8-1'), 
+    vector=(-0.332039, 0.11068, 0.0))
+#: The instances were translated by -332.039E-03, 110.68E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-8-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-8-1'), vector=(-0.284605, 0.094868, 0.0))
+#: The instances were translated by -284.605E-03, 94.868E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.7251, 
+    farPlane=91.6601, width=12.6462, height=4.39298, viewOffsetX=3.44153, 
+    viewOffsetY=-1.55833)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-9-1', 
+    'Block-2-lin-1-8-lin-9-1', 'Block-2-lin-1-7-lin-9-1', 
+    'Block-2-lin-1-6-lin-9-1', 'Block-2-lin-1-5-lin-9-1', 
+    'Block-2-lin-1-4-lin-9-1', 'Block-2-lin-1-3-lin-9-1', 
+    'Block-2-lin-1-2-lin-9-1', 'Block-2-lin-9-1', 'HalfBlock-1-lin-9-1'), 
+    vector=(-0.237171, 0.079057, 0.0))
+#: The instances were translated by -237.171E-03, 79.057E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-9-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin--lin-9-1'), vector=(-0.189737, 0.063246, 0.0))
+#: The instances were translated by -189.737E-03, 63.246E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-10-1', 
+    'Block-2-lin-1-8-lin-10-1', 'Block-2-lin-1-7-lin-10-1', 
+    'Block-2-lin-1-6-lin-10-1', 'Block-2-lin-1-5-lin-10-1', 
+    'Block-2-lin-1-4-lin-10-1', 'Block-2-lin-1-3-lin-10-1', 
+    'Block-2-lin-1-2-lin-10-1', 'Block-2-lin-10-1', 'HalfBlock-1-lin-10-1'), 
+    vector=(-0.189737, 0.063246, 0.0))
+#: The instances were translated by -189.737E-03, 63.246E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.531, 
+    farPlane=91.8541, width=15.3519, height=5.33287, viewOffsetX=3.90769, 
+    viewOffsetY=-1.21948)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-10-1', 
+    'Block-2-lin-1-8-lin-10-1', 'Block-2-lin-1-7-lin-10-1', 
+    'Block-2-lin-1-6-lin-10-1', 'Block-2-lin-1-5-lin-10-1', 
+    'Block-2-lin-1-4-lin-10-1', 'Block-2-lin-1-3-lin-10-1', 
+    'Block-2-lin-1-2-lin-10-1', 'Block-2-lin-10-1', 'HalfBlock-1-lin-10-1'), 
+    vector=(0.047434, -0.015811, 0.0))
+#: The instances were translated by 47.434E-03, -15.811E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=60.9371, 
+    farPlane=91.4481, width=9.62127, height=3.34219, viewOffsetX=3.32062, 
+    viewOffsetY=-1.90705)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('Block-2-lin-1-8-lin-2-1-lin-10-1', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-7', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-6', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-5', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-4', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-3', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-2', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1-1', 
+    'Block-2-lin-1-8-lin-2-1-lin-lin-10-1'), vector=(-0.094868, 0.031623, 0.0))
+#: The instances were translated by -94.868E-03, 31.623E-03, 0. with respect to the assembly coordinate system
+a1 = mdb.models['Model-1'].rootAssembly
+a1.translate(instanceList=('HalfBlock-1-lin-1-2-lin-11-1', 
+    'Block-2-lin-1-8-lin-11-1', 'Block-2-lin-1-7-lin-11-1', 
+    'Block-2-lin-1-6-lin-11-1', 'Block-2-lin-1-5-lin-11-1', 
+    'Block-2-lin-1-4-lin-11-1', 'Block-2-lin-1-3-lin-11-1', 
+    'Block-2-lin-1-2-lin-11-1', 'Block-2-lin-11-1', 'HalfBlock-1-lin-11-1'), 
+    vector=(-0.047434, 0.015811, 0.0))
+#: The instances were translated by -47.434E-03, 15.811E-03, 0. with respect to the assembly coordinate system
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.1716, 
+    farPlane=93.2136, width=33.0379, height=11.4765, viewOffsetX=7.60946, 
+    viewOffsetY=-1.50145)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(interactions=ON, 
+    constraints=ON, connectors=ON, engineeringFeatures=ON)
+mdb.save()
+#: The model database has been saved to "D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume no forces w spacers\First delta flume.cae".
+session.viewports['Viewport: 1'].view.setValues(nearPlane=59.8757, 
+    farPlane=92.5094, width=23.1551, height=8.04349, viewOffsetX=5.07819, 
+    viewOffsetY=-1.25329)
+srf1 = mdb.models['Model-1'].rootAssembly.surfaces['Bottoms']
+leaf = dgm.LeafFromMeshSurfaceSets(surfaceSets=(srf1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+srf1 = mdb.models['Model-1'].rootAssembly.surfaces['Bottoms']
+leaf = dgm.LeafFromMeshSurfaceSets(surfaceSets=(srf1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.either(leaf=leaf)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.undoLast()
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.undoLast()
+srf1 = mdb.models['Model-1'].rootAssembly.surfaces['Bottoms']
+leaf = dgm.LeafFromMeshSurfaceSets(surfaceSets=(srf1, ))
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=66.5358, 
+    farPlane=84.8971, width=48.7005, height=16.9173, viewOffsetX=5.43106, 
+    viewOffsetY=0.787278)
+r11=mdb.models['Model-1'].rootAssembly.surfaces['Bottoms']
+r12=mdb.models['Model-1'].rootAssembly.instances['DikeRigid-1'].surfaces['Surf-2']
+mdb.models['Model-1'].interactions['Int-2'].contactPropertyAssignments.appendInStep(
+    stepName='Initial', assignments=((r11, r12, 'BLOCK-FILTER'), ))
+leaf = dgm.Leaf(leafType=DEFAULT_MODEL)
+session.viewports['Viewport: 1'].assemblyDisplay.displayGroup.replace(
+    leaf=leaf)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=56.5301, 
+    farPlane=95.8839, width=70.1163, height=24.3566, viewOffsetX=23.4382, 
+    viewOffsetY=-0.959209)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Loading')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, interactions=OFF, constraints=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=58.9544, 
+    farPlane=93.4596, width=35.1711, height=12.2175, viewOffsetX=12.562, 
+    viewOffsetY=-1.23877)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['Job-1'].kill()
+mdb.jobs['Job-1'].kill()
+mdb.save()
+#: The model database has been saved to "D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume no forces w spacers\First delta flume.cae".
