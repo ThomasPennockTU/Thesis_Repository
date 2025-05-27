@@ -11,7 +11,7 @@
 !*.odb
 
 # Don't ignore anything in the 'workmap' folder
-!workmap/**
+!workfolder/**
 
 # Ignore this folder and its contents
 1.0-First delta flume/**
