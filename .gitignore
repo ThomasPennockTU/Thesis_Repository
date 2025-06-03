@@ -7,9 +7,6 @@
 # Keep .gitignore itself
 !.gitignore
 
-# Don't ignore .odb files anywhere
-!*.odb
-
 # Don't ignore anything in the 'workmap' folder
 !workfolder/**
 
