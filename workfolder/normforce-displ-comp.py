@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from odbAccess import openOdb
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import os
 
 # --- Settings ---
-odb_path = '../1.2-9 Block Flume pull test fd/Job-3.odb'
+jobname = 'spinup_test'
+odb_path = "../1.2-9 Block Flume pull test fd/{}.odb".format(jobname)
 instance_name = 'BLOCK-2-LIN-1-5-LIN-11-1'
 node_label = 33
 set_names = ['whole', 'sides']  # Compare these two
+print(odb_path)
 
 # Slope angle: 1 vertical to 3 horizontal
 alpha = math.atan(1.0 / 3.0)
@@ -23,19 +30,18 @@ R = np.array([
 ])
 
 # --- Open ODB ---
-odb = openOdb(path=odb_path)
+odb = openOdb(path=str(odb_path))
 step_keys = odb.steps.keys()
-if len(step_keys) < 2:
-    raise ValueError("ODB must contain at least two steps.")
+if len(step_keys) < 1:
+    raise ValueError("ODB must contain at least one step.")
 step1 = odb.steps[step_keys[0]]
-step2 = odb.steps[step_keys[1]]
 
 # Get instance
 if instance_name not in odb.rootAssembly.instances:
     raise ValueError("Instance '{}' not found.".format(instance_name))
 instance = odb.rootAssembly.instances[instance_name]
 
-# CNORMF keys
+# CNORMF key
 def get_cnormf_key(step):
     for key in step.frames[0].fieldOutputs.keys():
         if key.startswith('CNORMF'):
@@ -43,13 +49,12 @@ def get_cnormf_key(step):
     raise ValueError("CNORMF not found in step.")
 
 cnormf_key_1 = get_cnormf_key(step1)
-cnormf_key_2 = get_cnormf_key(step2)
 
 # --- Storage for each set ---
 data = {}
 
 # --- Step processor ---
-def process_step(step, cnormf_key, region, instance, t_offset):
+def process_step(step, cnormf_key, region, instance):
     time_vals = []
     disp_vals = []
     cnormf1 = []
@@ -57,7 +62,7 @@ def process_step(step, cnormf_key, region, instance, t_offset):
     cnormf3 = []
 
     for frame in step.frames:
-        time = frame.frameValue + t_offset
+        time = frame.frameValue
         field = frame.fieldOutputs[cnormf_key]
         subset = field.getSubset(region=region)
 
@@ -93,16 +98,14 @@ for name in set_names:
     except KeyError:
         raise ValueError("Node set '{}' not found.".format(name))
 
-    tvals1, dvals1, c1_1, c2_1, c3_1 = process_step(step1, cnormf_key_1, region, instance, 0.0)
-    t_final_1 = step1.frames[-1].frameValue
-    tvals2, dvals2, c1_2, c2_2, c3_2 = process_step(step2, cnormf_key_2, region, instance, t_final_1)
+    tvals, dvals, c1, c2, c3 = process_step(step1, cnormf_key_1, region, instance)
 
     data[name] = {
-        'time': tvals1 + tvals2,
-        'disp': dvals1 + dvals2,
-        'c1': c1_1 + c1_2,
-        'c2': c2_1 + c2_2,
-        'c3': c3_1 + c3_2
+        'time': tvals,
+        'disp': dvals,
+        'c1': c1,
+        'c2': c2,
+        'c3': c3
     }
 
 odb.close()
@@ -118,34 +121,34 @@ colors = {
 }
 
 labels = {
-    'c1': u"CNORMF1 (along slope)",
-    'c2': u"CNORMF2 (normal to slope)",
-    'c3': u"CNORMF3 (vertical)"
+    'c1': "CNORMF1 (along slope)",
+    'c2': "CNORMF2 (normal to slope)",
+    'c3': "CNORMF3 (vertical)"
 }
 
 # --- Plot on both axes ---
 for comp, ax, xkey in [('disp', ax1, 'Displacement Normal to Slope (m)'), ('time', ax2, 'Time (s)')]:
     for cid in ['c1', 'c2', 'c3']:
         # Whole block = solid
-        ax.plot(data['whole'][comp], data['whole'][cid], label=u"Whole – " + labels[cid],
+        ax.plot(data['whole'][comp], data['whole'][cid], label="Whole - " + labels[cid],
                 linewidth=2, color=colors[cid])
         ax.fill_between(data['whole'][comp], data['whole'][cid], color=colors[cid], alpha=0.2)
 
         # Sides = dashed
-        ax.plot(data['sides'][comp], data['sides'][cid], label=u"Sides – " + labels[cid],
+        ax.plot(data['sides'][comp], data['sides'][cid], label="Sides - " + labels[cid],
                 linewidth=2, linestyle='--', color=colors[cid])
         ax.fill_between(data['sides'][comp], data['sides'][cid], color=colors[cid], alpha=0.1)
 
-    ax.set_xlabel(u"{}".format(xkey))
-    ax.set_ylabel(u"CNORMF Components (N)")
+    ax.set_xlabel(xkey)
+    ax.set_ylabel("CNORMF Components (N)")
     ax.grid(True)
     ax.legend()
 
 # --- Titles and save ---
-ax1.set_title(u"CNORMF vs. Displacement (Whole vs. Sides)")
-ax2.set_title(u"CNORMF vs. Time (Whole vs. Sides)")
+ax1.set_title("CNORMF vs. Displacement (Whole vs. Sides)")
+ax2.set_title("CNORMF vs. Time (Whole vs. Sides)")
 
-plt.suptitle(u"Comparison of CNORMF (Whole vs. Sides) — Instance '{}'".format(instance_name), fontsize=14)
+plt.suptitle("Comparison of CNORMF - Job '{}' | Instance '{}'".format(jobname, instance_name), fontsize=14)
 plt.tight_layout(rect=[0, 0, 1, 0.95])
-plt.savefig("cnormf_compare_whole_vs_sides_node{}_{}.png".format(
-    node_label, instance_name.replace('-', '_')))
+plt.savefig("cnormf_compare_{}_node{}_{}.png".format(
+    jobname, node_label, instance_name.replace('-', '_')))
