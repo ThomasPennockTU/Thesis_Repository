@@ -34,9 +34,9 @@ wave_impact_x = np.piecewise(
     [xx < 4, (xx >= 4) & (xx < 4.5), (xx >= 4.5) & (xx < 5.5), (xx >= 5.5) & (xx < 6), xx >= 6],
     [
         0,
-        lambda x: (x - 4) * (10 / 0.5),           # Rise from 0 to 10
-        10,
-        lambda x: 10 - (x - 5.5) * (10 / 0.5),    # Fall from 10 to 0
+        lambda x: (x - 4) * (9.54 / 0.5),           # Rise from 0 to 9.54
+        9,54,
+        lambda x: 9.54 - (x - 5.5) * (9.54 / 0.5),    # Fall from 9,54 to 0
         0
     ]
 )
