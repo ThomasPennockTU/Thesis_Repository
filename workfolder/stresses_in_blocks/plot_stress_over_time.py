@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # --- Load CSV ---
-csv_path = 'max_principal_stress_per_block.csv'
+csv_path = 'max_principal_stress_per_block2.csv'
 df = pd.read_csv(csv_path)
 
 # --- Extract time and block columns ---
