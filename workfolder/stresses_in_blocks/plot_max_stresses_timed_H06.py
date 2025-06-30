@@ -73,3 +73,32 @@ with open(output_csv, 'w') as f:
     writer.writerows(rows)
 
 print("\n✅ Done. Max principal stress per block saved to '{}'".format(output_csv))
+
+# --- Send Telegram message ---
+try:
+    import urllib
+    import urllib2
+
+    BOT_TOKEN = "8000286711:AAFiFXs6qjXh2nL11xpwynRSc-lAhkElQr8"
+    CHAT_ID = "6217477088"
+    TEXT = u"\U0001F916 The stress calculation is *done*!\nFile: `{}`".format(output_csv)
+
+    url = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage"
+    data = urllib.urlencode({
+        "chat_id": CHAT_ID,
+        "text": TEXT.encode('utf-8'),
+        "parse_mode": "Markdown"
+    })
+    req = urllib2.Request(url, data)
+    response = urllib2.urlopen(req)
+
+    if response.getcode() == 200:
+        print("✅ Telegram message sent.")
+    else:
+        print("⚠️ Telegram failed with HTTP code {}".format(response.getcode()))
+
+except Exception as e:
+    try:
+        print(u"Telegram message failed: {}".format(unicode(e))).encode('utf-8')
+    except:
+        print("Telegram message failed (could not print unicode error message).")
