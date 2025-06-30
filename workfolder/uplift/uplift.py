@@ -5,7 +5,7 @@ import csv
 
 # === CONFIGURATION ===
 odb_path = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume\Job-amptest-1200.odb'
-output_csv = 'relative_uplift_timeseries.csv'
+output_csv = 'relative_uplift_timeseries_06.csv'
 
 # === OPEN ODB ===
 odb = openOdb(path=odb_path)

@@ -2,7 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 
 # === CONFIGURATION ===
-csv_file = 'relative_uplift_timeseries.csv'
+csv_file = 'relative_uplift_timeseries_06.csv'
 
 # === LOAD DATA ===
 times = []
@@ -12,15 +12,24 @@ uplift_data = {}
 with open(csv_file, 'r') as f:
     reader = csv.reader(f)
     header = next(reader)
-    block_names = header[1:]  # Skip 'Time' column
+
+    # Header now has: ['Step', 'Time', 'B-1-1', ...]
+    block_names = header[2:]   # skip Step and Time columns
 
     for block in block_names:
         uplift_data[block] = []
 
     for row in reader:
-        times.append(float(row[0]))
+        # row[0] → Step name
+        # row[1] → Time
+        time_str = row[1]
+        if time_str:
+            times.append(float(time_str))
+        else:
+            times.append(None)
+
         for i, block in enumerate(block_names):
-            val = row[i + 1]
+            val = row[i + 2]   # shift by 2 columns
             uplift_data[block].append(float(val) if val else None)
 
 # === PLOT DATA ===
