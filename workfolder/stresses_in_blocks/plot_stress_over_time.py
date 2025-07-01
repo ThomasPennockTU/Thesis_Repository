@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # --- Load CSV ---
-csv_path = 'max_principal_stress_per_block2.csv'
+csv_path = 'workfolder/stresses_in_blocks/max_principal_stress_per_block_H06.csv'
 df = pd.read_csv(csv_path)
 
 # --- Extract time and block columns ---
@@ -22,6 +22,7 @@ plt.ylabel("Max Principal Stress (Pa)")
 plt.grid(True)
 # plt.legend(loc='upper right', fontsize='small', ncol=2)
 plt.tight_layout()
-plt.savefig("stress_over_time_per_block.png")
+# plt.savefig("stress_over_time_per_block.png")
 print("✅ Plot saved: stress_over_time_per_block.png")
+plt.show()
 

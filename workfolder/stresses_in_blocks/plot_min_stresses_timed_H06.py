@@ -4,13 +4,11 @@ from abaqusConstants import ELEMENT_NODAL
 import numpy as np
 import csv
 import os
-import urllib
-import urllib2
 
 # --- Settings ---
 odb_path = r'..\..\1.0-First delta flume final\Job-H-0_6.odb'
 output_csv = 'max_principal_stress_per_block_H06.csv'
-test = 1  # Set to 1 to run only the first 100 frames, 0 for all frames
+test = 0  # Set to 1 to run only the first 100 frames, 0 for all frames
 
 # --- Open ODB ---
 if not os.path.exists(odb_path):
@@ -35,14 +33,13 @@ if test:
 else:
     n_frames = len(frames)
 
-print "✅ ODB has {} frames. Processing {} frames...".format(len(frames), n_frames)
+print("✅ ODB has {} frames. Processing {} frames...".format(len(frames), n_frames))
 
 # --- Loop over frames ---
 for frame_idx in range(n_frames):
     frame = frames[frame_idx]
     time = round(frame.frameValue, 2)
-    if frame_idx % 10 == 0 or frame_idx == n_frames-1:
-        print "→ Frame {:3d} | Time step {:.4f} s".format(frame_idx+1, time)
+    print("→ Frame {:3d} | Time step {:.4f} s".format(frame_idx+1, time))
     stress_field = frame.fieldOutputs['S']
     row = [time]
 
@@ -50,25 +47,18 @@ for frame_idx in range(n_frames):
         instance = all_instances[block_name]
         stress_subset = stress_field.getSubset(region=instance, position=ELEMENT_NODAL)
 
-        nvals = len(stress_subset.values)
-        if nvals == 0:
-            row.append('')
-            continue
-
-        stress_data = np.empty((nvals, 6))
-        for i, val in enumerate(stress_subset.values):
-            stress_data[i, :] = val.data
-
-        stress_tensors = np.zeros((nvals, 3, 3))
-        stress_tensors[:, 0, 0] = stress_data[:, 0]
-        stress_tensors[:, 1, 1] = stress_data[:, 1]
-        stress_tensors[:, 2, 2] = stress_data[:, 2]
-        stress_tensors[:, 0, 1] = stress_tensors[:, 1, 0] = stress_data[:, 3]
-        stress_tensors[:, 0, 2] = stress_tensors[:, 2, 0] = stress_data[:, 4]
-        stress_tensors[:, 1, 2] = stress_tensors[:, 2, 1] = stress_data[:, 5]
-
-        principal_stresses = np.linalg.eigvalsh(stress_tensors)
-        max_princ = np.max(principal_stresses)
+        max_princ = -1e20
+        for val in stress_subset.values:
+            s = val.data
+            stress_tensor = np.array([
+                [s[0], s[3], s[4]],
+                [s[3], s[1], s[5]],
+                [s[4], s[5], s[2]]
+            ])
+            principal_stresses = np.linalg.eigvalsh(stress_tensor)
+            max_p = max(principal_stresses)
+            if max_p > max_princ:
+                max_princ = max_p
 
         row.append(max_princ if max_princ > -1e10 else '')
 
@@ -82,13 +72,16 @@ with open(output_csv, 'w') as f:
     writer.writerow(header)
     writer.writerows(rows)
 
-print "\n✅ Done. Max principal stress per block saved to '{}'".format(output_csv)
+print("\n Done. Max principal stress per block saved to '{}'".format(output_csv))
 
 # --- Send Telegram message ---
 try:
-    BOT_TOKEN = "8000286711:AAFiFXs6qjXh2nL11xpwynRSc-lAhkElQr8"
-    CHAT_ID = "6217477088"
-    TEXT = u"\U0001F916 The stress calculation is *done*!\nFile: `{}`".format(output_csv)
+    import urllib
+    import urllib2
+
+    BOT_TOKEN = "...."
+    CHAT_ID = "...."
+    TEXT = u"The stress calculation is done!\nFile: `{}`".format(output_csv)
 
     url = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage"
     data = urllib.urlencode({
@@ -100,12 +93,9 @@ try:
     response = urllib2.urlopen(req)
 
     if response.getcode() == 200:
-        print "✅ Telegram message sent."
+        print("✅ Telegram message sent.")
     else:
-        print "⚠️ Telegram failed with HTTP code", response.getcode()
+        print("⚠️ Telegram failed with HTTP code {}".format(response.getcode()))
 
 except Exception as e:
-    try:
-        print (u"Telegram message failed: {}".format(unicode(e))).encode('utf-8')
-    except:
-        print "Telegram message failed (could not print unicode error message)."
+    print("Telegram message failed: {}".format(str(e)))

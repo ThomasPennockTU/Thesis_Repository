@@ -8,7 +8,7 @@ import os
 # --- Settings ---
 odb_path = r'..\..\1.0-First delta flume final\Job-H-0_6.odb'
 output_csv = 'max_principal_stress_per_block_H06.csv'
-test = 1  # Set to 1 to run only the first 100 frames, 0 for all frames
+test = 0  # Set to 1 to run only the first 100 frames, 0 for all frames
 
 # --- Open ODB ---
 if not os.path.exists(odb_path):
