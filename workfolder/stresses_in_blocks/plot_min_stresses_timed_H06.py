@@ -7,7 +7,7 @@ import os
 
 # --- Settings ---
 odb_path = r'..\..\1.0-First delta flume final\Job-H-0_6.odb'
-output_csv = 'max_principal_stress_per_block_H06.csv'
+output_csv = 'min_principal_stress_per_block_H06.csv'
 test = 0  # Set to 1 to run only the first 100 frames, 0 for all frames
 
 # --- Open ODB ---
@@ -39,7 +39,7 @@ print("✅ ODB has {} frames. Processing {} frames...".format(len(frames), n_fra
 for frame_idx in range(n_frames):
     frame = frames[frame_idx]
     time = round(frame.frameValue, 2)
-    print("→ Frame {:3d} | Time step {:.4f} s".format(frame_idx+1, time))
+    print("→ Frame {:3d} | Time step {:.4f} s".format(frame_idx + 1, time))
     stress_field = frame.fieldOutputs['S']
     row = [time]
 
@@ -47,7 +47,7 @@ for frame_idx in range(n_frames):
         instance = all_instances[block_name]
         stress_subset = stress_field.getSubset(region=instance, position=ELEMENT_NODAL)
 
-        max_princ = -1e20
+        min_princ = 1e20
         for val in stress_subset.values:
             s = val.data
             stress_tensor = np.array([
@@ -56,11 +56,11 @@ for frame_idx in range(n_frames):
                 [s[4], s[5], s[2]]
             ])
             principal_stresses = np.linalg.eigvalsh(stress_tensor)
-            max_p = max(principal_stresses)
-            if max_p > max_princ:
-                max_princ = max_p
+            min_p = min(principal_stresses)
+            if min_p < min_princ:
+                min_princ = min_p
 
-        row.append(max_princ if max_princ > -1e10 else '')
+        row.append(min_princ if min_princ < 1e10 else '')
 
     rows.append(row)
 
@@ -72,16 +72,16 @@ with open(output_csv, 'w') as f:
     writer.writerow(header)
     writer.writerows(rows)
 
-print("\n Done. Max principal stress per block saved to '{}'".format(output_csv))
+print("\n✅ Done. Min principal stress per block saved to '{}'".format(output_csv))
 
 # --- Send Telegram message ---
 try:
     import urllib
     import urllib2
 
-    BOT_TOKEN = "...."
-    CHAT_ID = "...."
-    TEXT = u"The stress calculation is done!\nFile: `{}`".format(output_csv)
+    BOT_TOKEN = "8000286711:AAFiFXs6qjXh2nL11xpwynRSc-lAhkElQr8"
+    CHAT_ID = "6217477088"
+    TEXT = u"\U0001F916 The stress calculation is *done*!\nFile: `{}`".format(output_csv)
 
     url = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage"
     data = urllib.urlencode({
@@ -98,4 +98,7 @@ try:
         print("⚠️ Telegram failed with HTTP code {}".format(response.getcode()))
 
 except Exception as e:
-    print("Telegram message failed: {}".format(str(e)))
+    try:
+        print(u"Telegram message failed: {}".format(unicode(e))).encode('utf-8')
+    except:
+        print("Telegram message failed (could not print unicode error message).")
