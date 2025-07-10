@@ -12,3 +12,6 @@
 
 # Ignore this folder and its contents
 1.0-First delta flume/**
+
+# Keep all Python files
+!*.py
