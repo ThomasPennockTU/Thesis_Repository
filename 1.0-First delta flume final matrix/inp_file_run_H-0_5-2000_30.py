@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 from abaqus import mdb
 from abaqusConstants import *
@@ -9,7 +10,7 @@ import urllib2
 print "Script started."
 
 # Job name (must match the .inp file name without the extension)
-job_name = 'Job-H-0_8'
+job_name = 'Job-H-0_5-2000_30'
 inp_file = job_name + '.inp'
 
 # Check input file exists
