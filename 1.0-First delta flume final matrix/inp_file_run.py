@@ -9,7 +9,7 @@ import urllib2
 print "Script started."
 
 # Job name (must match the .inp file name without the extension)
-job_name = 'Job-H-1_0'
+job_name = 'Job-H-0_5-2300_7'
 inp_file = job_name + '.inp'
 
 # Check input file exists

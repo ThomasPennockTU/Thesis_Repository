@@ -8,7 +8,7 @@ import os
 
 # JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME  JOBNAME 
 
-job_name = 'Job-H-0_5-2300-30'
+job_name = 'Job-H-0_5-2300_7'
 Hs = 0.5
 density_value = 2300.0                # your new density
 youngs_modulus_value = 7.5e9          # your new Young's modulus
