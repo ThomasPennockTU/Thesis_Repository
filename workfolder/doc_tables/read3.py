@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Patch
+import os
 from matplotlib.lines import Line2D
-from matplotlib.legend_handler import HandlerTuple
 
 # --------- Set STIX Font ---------
 plt.rcParams["font.family"] = "STIX Two Text"
@@ -24,24 +24,35 @@ for row in table.rows:
 # Convert to DataFrame
 df = pd.DataFrame(data[1:], columns=data[0])
 
-# Clean up column names (strip spaces, replace weird characters)
-df.columns = [col.strip().replace("", "Δ") for col in df.columns]
+# Clean up column names (strip spaces, replace symbols)
+df.columns = [
+    col.strip()
+        .replace("", "Δ")
+        .replace("", "ξ")
+    for col in df.columns
+]
 
 # Check exact column names
 print("Columns:", df.columns.tolist())
+
+# Convert relevant columns to numeric
+# Always convert before filtering to avoid SettingWithCopyWarning
+df["Hs/ΔD"] = pd.to_numeric(df["Hs/ΔD"], errors="coerce")
+
+# Check if ξ column exists
+xi_col_candidates = [col for col in df.columns if "ξ" in col]
+if not xi_col_candidates:
+    raise ValueError("Could not find a ξ column in the table. Check your table header names!")
+xi_col_name = xi_col_candidates[0]
+print(f"Using column: {xi_col_name}")
+
+df[xi_col_name] = pd.to_numeric(df[xi_col_name], errors="coerce")
 
 # Filter rows where Type == "CB" and Toplayer == "Rectangular blocks"
 df_cb_rect = df[
     (df["Type"] == "CB") &
     (df["Toplayer"] == "Rectangular blocks")
-]
-
-# Convert relevant columns to numeric
-df_cb_rect["Hs/ΔD"] = pd.to_numeric(df_cb_rect["Hs/ΔD"], errors="coerce")
-df_cb_rect["N"] = pd.to_numeric(df_cb_rect["N"], errors="coerce")
-
-# Drop rows with missing numeric data
-df_cb_rect = df_cb_rect.dropna(subset=["Hs/ΔD", "N", "Updated damage"])
+].dropna(subset=["Hs/ΔD", xi_col_name, "Updated damage"])
 
 # Define color mapping
 damage_colors = {
@@ -59,7 +70,7 @@ df_circles = df_cb_rect[~df_cb_rect["Updated damage"].isin(["c1", "d1"])]
 df_crosses = df_cb_rect[df_cb_rect["Updated damage"].isin(["c1", "d1"])]
 
 # --- Add your own data point ---
-my_N = 1000
+my_xi = 1.5         # <<-- Replace with your own ξₘ-10 value
 my_damage = "d"
 
 # Define densities
@@ -79,7 +90,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 # Circles
 ax.scatter(
-    df_circles["N"],
+    df_circles[xi_col_name],
     df_circles["Hs/ΔD"],
     c=df_circles["Updated damage"].map(damage_colors),
     edgecolor='black',
@@ -89,7 +100,7 @@ ax.scatter(
 
 # Crosses
 ax.scatter(
-    df_crosses["N"],
+    df_crosses[xi_col_name],
     df_crosses["Hs/ΔD"],
     c=df_crosses["Updated damage"].map(damage_colors),
     edgecolor='black',
@@ -100,7 +111,7 @@ ax.scatter(
 
 # Plot your own data point
 ax.scatter(
-    my_N,
+    my_xi,
     my_Hs_Delta_D,
     color=damage_colors[my_damage],
     edgecolor='black',
@@ -112,8 +123,8 @@ ax.scatter(
 # Add label with arrow
 ax.annotate(
     "Abaqus Simulation\nH07 C30/37",
-    xy=(my_N, my_Hs_Delta_D),
-    xytext=(my_N - 200, my_Hs_Delta_D),
+    xy=(my_xi, my_Hs_Delta_D),
+    xytext=(my_xi - 0.35, my_Hs_Delta_D + 1),
     ha='right',
     va='center',
     fontsize=12,
@@ -126,38 +137,48 @@ ax.annotate(
 )
 
 # Labels and title
-ax.set_xlim(0, 2000)
-ax.set_xlabel(r"N", fontsize=14)
+ax.set_xlim(0, df_cb_rect[xi_col_name].max() * 1.1)
+ax.set_xlabel(r"$\xi_{m-10}$", fontsize=14)
 ax.set_ylabel(r"$H_s/\Delta D$", fontsize=14)
-ax.set_title(r"$H_s/\Delta D$ vs N for Type CB with Rectangular blocks", fontsize=16)
+ax.set_title(r"$H_s/\Delta D$ vs $\xi_{m-10}$ for Type CB with Rectangular blocks", fontsize=16)
 
-# Match grid, spines, and tick lines
+# Grid and styling
 grid_color = 'gray'
 ax.grid(True, linestyle='-', alpha=0.5, color=grid_color)
 
-# Spines same color as grid
 for spine in ax.spines.values():
     spine.set_color(grid_color)
 
-# Set tick lines gray
 ax.tick_params(axis='both', color=grid_color)
+ax.tick_params(axis='x', labelcolor='black', rotation=45, labelsize=12)
+ax.tick_params(axis='y', labelcolor='black', labelsize=12)
 
-# Set tick label text color back to black
-ax.tick_params(axis='x', labelcolor='black')
-ax.tick_params(axis='y', labelcolor='black')
-
-# Ticks formatting
-ax.tick_params(axis='x', labelrotation=45, labelsize=12)
-ax.tick_params(axis='y', labelsize=12)
+# Legend
+legend_elements = [
+    Patch(facecolor="white", edgecolor='black', label='Damage 0'),
+    Patch(facecolor="green", edgecolor='black', label='Damage a'),
+    Patch(facecolor="yellow", edgecolor='black', label='Damage b'),
+    Patch(facecolor="orange", edgecolor='black', label='Damage c / c1'),
+    Patch(facecolor="red", edgecolor='black', label='Damage d / d1'),
+    Line2D([0], [0], color='red', marker='s', markersize=10,
+           linestyle='None', markeredgecolor='black', label='Abaqus Simulation'),
+]
+ax.legend(handles=legend_elements, fontsize=12, loc='best')
 
 plt.tight_layout()
 
-# Save figure
+output_dir = "workfolder/doc_tables"
+os.makedirs(output_dir, exist_ok=True)
+
+output_path = os.path.join(output_dir, "Hs_Delta_D_vs_xim10_CB_Rectangular.png")
+
 fig.savefig(
-    "Hs_Delta_D_vs_N_CB_Rectangular.png",
+    output_path,
     dpi=300,
     bbox_inches='tight'
 )
+
+print("Plot saved to:", output_path)
 
 # Show figure
 plt.show()
