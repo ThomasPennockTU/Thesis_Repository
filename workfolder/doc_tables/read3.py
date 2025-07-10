@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from docx import Document
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -36,7 +37,6 @@ df.columns = [
 print("Columns:", df.columns.tolist())
 
 # Convert relevant columns to numeric
-# Always convert before filtering to avoid SettingWithCopyWarning
 df["Hs/ΔD"] = pd.to_numeric(df["Hs/ΔD"], errors="coerce")
 
 # Check if ξ column exists
@@ -70,7 +70,7 @@ df_circles = df_cb_rect[~df_cb_rect["Updated damage"].isin(["c1", "d1"])]
 df_crosses = df_cb_rect[df_cb_rect["Updated damage"].isin(["c1", "d1"])]
 
 # --- Add your own data point ---
-my_xi = 1.5         # <<-- Replace with your own ξₘ-10 value
+my_xi = 1.515       # <<-- Replace with your own ξₘ-10 value
 my_damage = "d"
 
 # Define densities
@@ -127,7 +127,7 @@ ax.annotate(
     xytext=(my_xi - 0.35, my_Hs_Delta_D + 1),
     ha='right',
     va='center',
-    fontsize=12,
+    fontsize=14,        # increased from 12
     color='black',
     arrowprops=dict(
         arrowstyle='-',
@@ -138,9 +138,9 @@ ax.annotate(
 
 # Labels and title
 ax.set_xlim(0, df_cb_rect[xi_col_name].max() * 1.1)
-ax.set_xlabel(r"$\xi_{m-10}$", fontsize=14)
-ax.set_ylabel(r"$H_s/\Delta D$", fontsize=14)
-ax.set_title(r"$H_s/\Delta D$ vs $\xi_{m-10}$ for Type CB with Rectangular blocks", fontsize=16)
+ax.set_xlabel(r"$\xi_{m-10}$", fontsize=16)
+ax.set_ylabel(r"$H_s/\Delta D$", fontsize=16)
+# ax.set_title(r"$H_s/\Delta D$ vs $\xi_{m-10}$ for Type CB with Rectangular blocks", fontsize=18)
 
 # Grid and styling
 grid_color = 'gray'
@@ -150,8 +150,8 @@ for spine in ax.spines.values():
     spine.set_color(grid_color)
 
 ax.tick_params(axis='both', color=grid_color)
-ax.tick_params(axis='x', labelcolor='black', rotation=45, labelsize=12)
-ax.tick_params(axis='y', labelcolor='black', labelsize=12)
+ax.tick_params(axis='x', labelcolor='black', rotation=45, labelsize=14)
+ax.tick_params(axis='y', labelcolor='black', labelsize=14)
 
 # Legend
 legend_elements = [
@@ -163,7 +163,7 @@ legend_elements = [
     Line2D([0], [0], color='red', marker='s', markersize=10,
            linestyle='None', markeredgecolor='black', label='Abaqus Simulation'),
 ]
-ax.legend(handles=legend_elements, fontsize=12, loc='best')
+ax.legend(handles=legend_elements, fontsize=14, loc='best')
 
 plt.tight_layout()
 
