@@ -153,7 +153,7 @@ ax.tick_params(axis='both', color=grid_color)
 ax.tick_params(axis='x', labelcolor='black', rotation=45, labelsize=14)
 ax.tick_params(axis='y', labelcolor='black', labelsize=14)
 
-# Legend
+# Legend2
 legend_elements = [
     Patch(facecolor="white", edgecolor='black', label='Damage 0'),
     Patch(facecolor="green", edgecolor='black', label='Damage a'),
