@@ -7,7 +7,7 @@ import os
 
 # --- Settings ---
 odb_path = r'..\..\1.0-First delta flume final\Job-H-0_6.odb'
-output_csv = 'principal_stress_per_block_H06_2300_30.csv'
+output_csv = 'principal_stress_per_block_H06.csv'
 test = 0  # Set to 1 to run only the first 100 frames, 0 for all frames
 
 # --- Open ODB ---
@@ -37,37 +37,15 @@ if test:
 else:
     n_frames = len(frames)
 
-print "ODB has {} frames. Processing up to {} frames...".format(len(frames), n_frames)
-
-# --- Define time intervals to process ---
-intervals = [
-    (0.0, 1.0),
-    (2.0, 3.0),
-    (4.0, 5.0),
-    (6.0, 7.0),
-    (8.0, 9.0)
-]
+print "ODB has {} frames. Processing {} frames...".format(len(frames), n_frames)
 
 # --- Loop over frames ---
 for frame_idx in range(n_frames):
     frame = frames[frame_idx]
-    time = frame.frameValue
-
-    # Check if this frame is inside any interval
-    keep = False
-    for t_start, t_end in intervals:
-        if t_start <= time <= t_end:
-            keep = True
-            break
-
-    if not keep:
-        continue
-
-    time_rounded = round(time, 2)
-    print "Frame %3d | Time step %.4f s" % (frame_idx + 1, time_rounded)
-
+    time = round(frame.frameValue, 2)
+    print "Frame %3d | Time step %.4f s" % (frame_idx + 1, time)
     stress_field = frame.fieldOutputs['S']
-    row = [time_rounded]
+    row = [time]
 
     for block_name in block_names:
         instance = all_instances[block_name]
