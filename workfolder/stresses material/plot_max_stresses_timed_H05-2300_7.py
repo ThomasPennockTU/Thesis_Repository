@@ -6,8 +6,8 @@ import csv
 import os
 
 # --- Settings ---
-odb_path = r'..\..\1.0-First delta flume final C30 10p\Job-H-0_5.odb'
-output_csv = 'principal_stress_per_block_H05_C30_10p.csv'
+odb_path = r'..\..\1.0-First delta flume final matrix\Job-H-0_5-2300_7.odb'
+output_csv = 'principal_stress_per_block_H05-2300_7.csv'
 test = 0  # Set to 1 to run only the first 100 frames, 0 for all frames
 
 # --- Open ODB ---
