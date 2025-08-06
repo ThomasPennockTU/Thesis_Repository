@@ -37,11 +37,11 @@ block_dx = block_length * np.cos(np.arctan(slope))
 block_start = 6.0
 block_positions = [block_start + i * block_dx for i in range(22)]
 
-# --- Generate wave heights (Rayleigh) ---
+# --- Generate top 5 wave heights using alternative Rayleigh approach ---
 
-sigma = Hs / np.sqrt(2)
-exceed_probs = np.arange(1, 6, 1) / 1000.0
-wave_heights = sigma * np.sqrt(-2 * np.log(exceed_probs))
+n = 1000
+p_values = [(k + 1) / float(n + 1) for k in range(5)]  # [1/1001, ..., 5/1001]
+wave_heights = sorted([round(Hs * np.sqrt(0.5 * np.log(1.0 / p)), 2) for p in p_values])
 
 # --- Initialize storage ---
 block_pressures_per_wave = {}
