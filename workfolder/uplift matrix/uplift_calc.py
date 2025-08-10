@@ -7,11 +7,6 @@ import csv
 odb_path = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume final matrix\Job-H-0_6-1950_2.odb'
 output_csv = 'uplift_downdrift_lastframe_maxcorners_06-1950_2.csv'
 
-# === CONFIGURATION ===
-# odb_path = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume final DS60 2\Job-H-0_5.odb'
-# output_csv = 'uplift_downdrift_lastframe_maxcorners_05-2300_2.csv'
-
-
 # === OPEN ODB ===
 odb = openOdb(path=odb_path)
 assembly = odb.rootAssembly
