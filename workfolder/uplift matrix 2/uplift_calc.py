@@ -16,10 +16,10 @@ base_dir = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume final ma
 job_list = [
     # 'Job-H-0_5_2300_30',
     # 'Job-H-0_6_2300_30',
-    # 'Job-H-0_7_2300_30',
-    'Job-H-0_8_2300_30',
-    'Job-H-0_9_2300_30',
-    'Job-H-1_0_2300_30'
+    'Job-H-0_7_2300_30',
+    # 'Job-H-0_8_2300_30',
+    # 'Job-H-0_9_2300_30',
+    # 'Job-H-1_0_2300_30'
     # 'Job-H-1_1_2300_30'
 ]
 
