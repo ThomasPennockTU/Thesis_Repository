@@ -138,8 +138,8 @@ ax.annotate(
 
 # Labels and title
 ax.set_xlim(0, df_cb_rect[xi_col_name].max() * 1.1)
-ax.set_xlabel(r"$\xi_{m-10}$", fontsize=16)
-ax.set_ylabel(r"$H_s/\Delta D$", fontsize=16)
+ax.set_xlabel(r"$\xi_{m-10}$", fontsize=20)
+ax.set_ylabel(r"$H_s/\Delta D$", fontsize=2)
 # ax.set_title(r"$H_s/\Delta D$ vs $\xi_{m-10}$ for Type CB with Rectangular blocks", fontsize=18)
 
 # Grid and styling
