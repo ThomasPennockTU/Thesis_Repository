@@ -4,8 +4,8 @@ import math
 import csv
 
 # === CONFIGURATION ===
-odb_path = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume final matrix 2\Job-H-0_8_2300_30.odb'
-output_csv = 'relative_uplift_timeseries_08_ASC.csv'
+odb_path = r'D:\tpennock\GitHub\Thesis_Repository\1.0-First delta flume final\Job-H-0_6_200_ASC.odb'
+output_csv = 'relative_uplift_timeseries_0_6_200_ASC.csv'
 
 # === OPEN ODB ===
 odb = openOdb(path=odb_path)
