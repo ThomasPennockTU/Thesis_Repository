@@ -46,18 +46,22 @@ block_start = 6.0
 block_positions = [block_start + i * block_dx for i in range(22)]
 
 # ------------------------------
-# GENERATE RAYLEIGH WAVE HEIGHTS
+# GENERATE RAYLEIGH WAVE HEIGHTS (small to large)
 # ------------------------------
 
 sigma = Hs / np.sqrt(2)
 exceed_probs = np.arange(1, n_waves + 1) / 1000.0
+
+# Reverse so largest prob (smallest wave) is first
+exceed_probs = exceed_probs[::-1]
+
 wave_heights = sigma * np.sqrt(-2 * np.log(exceed_probs))
 
 # ------------------------------
 # PRINT ALL WAVE HEIGHTS
 # ------------------------------
 
-print("\n✅ Wave heights (meters):")
+print("\n✅ Wave heights (meters) - Smallest to Largest:")
 for i, H in enumerate(wave_heights, 1):
     print(f"Wave {i:3d}: {H:.4f} m")
 
