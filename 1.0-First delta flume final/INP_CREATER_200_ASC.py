@@ -9,7 +9,7 @@ import os
 # CONFIGURATION
 # ------------------------------
 
-job_name = 'Job-H-0_6_200'
+job_name = 'Job-H-0_6_200_ASC'
 Hs = 0.6
 
 # How many waves to simulate?
